@@ -7,7 +7,7 @@ points:
   zones:
     matrix:
       anchor:
-        shift: [150, -150]
+        shift: [80, -150]
       columns:
         c1:
         c2:
@@ -29,7 +29,7 @@ points:
         c4:
         c5:
         c6.key:
-          stagger: -u/8
+          stagger: -u*0.25
           spread: u + 4
           splay: -30
         c7.key:
@@ -106,6 +106,10 @@ points:
       anchor:
         ref: thumbfan_c6_r0
         shift: [-12,4]
+  mirror: &mirror
+    ref: matrix_c6_r1
+    distance: 100
+    
 outlines:
   _keycaps:
     - what: rectangle
@@ -116,7 +120,8 @@ outlines:
       where: [key_1_5u]
       size: [18,18*1.5]
       fillet: 3
-  _mcu:
+
+  _mcu_left:
     - what: rectangle
       where: [mcu]
       size: [17.78,33]
@@ -128,7 +133,20 @@ outlines:
       operation: stack
       adjust:
         shift: [0,33/2-7.35/2+0.7]
-  _display:
+  _mcu_right:
+    - what: rectangle
+      where: [mirror_mcu]
+      size: [17.78,33]
+      fillet: 1
+    - what: rectangle
+      where: [mirror_mcu]
+      size: [8.94,7.35]
+      fillet: 0.1
+      operation: stack
+      adjust:
+        shift: [0,33/2-7.35/2+0.7]
+
+  _display_left:
     - what: rectangle
       where: [display]
       size: [14,36]
@@ -146,13 +164,41 @@ outlines:
       operation: stack
       adjust:
         shift: [0,-0.75]
-  _mcu_cluster:
+    
+  _display_right:
+    - what: rectangle
+      where: [mirror_display]
+      size: [14,36]
+      fillet: 0.5
+    - what: rectangle
+      where: [mirror_display]
+      size: [12.82,2.66]
+      operation: stack
+      fillet: 0.1
+      adjust:
+        shift: [0,-16.7]
+    - what: rectangle
+      where: [mirror_display]
+      size: [10.8,24.6]
+      operation: stack
+      adjust:
+        shift: [0,-0.75]  
+
+  _mcu_cluster_left:
     - what: outline
-      name: _mcu
+      name: _mcu_right
       operation: stack
     - what: outline
-      name: _display
+      name: _display_left
       operation: stack
+  _mcu_cluster_right:
+    - what: outline
+      name: _mcu_left
+      operation: stack
+    - what: outline
+      name: _display_right
+      operation: stack
+
   _keys:
     - what: rectangle
       where: /matrix/
@@ -174,13 +220,19 @@ outlines:
           shift: [u/2,-u]
         - ref: matrix_c6_r3
           shift: [u/2,-u/2]
-  screw_heads:
+
+  screw_heads_left:
     - what: circle
-      where: [screw]
+      where: /^screw_/
       radius: 4.3/2
-  mangrove:
+  screw_heads_right:
+    - what: circle
+      where: /scre/
+      radius: 4.3/2
+
+  mangrove_left:
     - what: rectangle
-      where: [key]
+      where: /^matrix/
       size: u
     - what: rectangle
       where: [matrix_c6_r4]
@@ -195,8 +247,6 @@ outlines:
       size: [18,36]
     - what: polygon
       points:
-        - ref: matrix_c2_r3
-          shift: [u/2,-u/2]
         - ref: matrix_c1_r3
           shift: [u/2,-u/2-u/4]
         - ref: thumbfan_c3_r0
@@ -228,52 +278,111 @@ outlines:
         - ref: matrix_c6_r2
           shift: [-u/2,0]
           affect: [x]
-        - ref: matrix_c2_r2
+
+  mangrove_right:
+    - what: rectangle
+      where: /^mirror_matrix/
+      size: u
+    - what: rectangle
+      where: [mirror_matrix_c6_r4]
+      size: [1.6,3u]
+      adjust:
+        shift: [u/2+1.6/2,-u]
+    - what: rectangle
+      where: [mirror_mcu]
+      size: [18,33]
+    - what: rectangle
+      where: [mirror_display]
+      size: [18,36]
+    - what: polygon
+      points:
+        - ref: mirror_matrix_c1_r3
+          shift: [u/2,-u/2-u/4]
+        - ref: mirror_thumbfan_c3_r0
+          shift: [-u/2,-u/2]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c5_r0
+          shift: [u/2,-u/2]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c6_r0
+          shift: [u/8,-u*0.625]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c7_r0
+          shift: [-u*0.625,-u*0.75]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c7_r0
+          shift: [u/2,-u*0.75]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c7_r0
+          shift: [u/2, 5*u/6.5]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c7_r0
+          shift: [u*0.2, u*0.8]
+          affect: [x,y]
+        - ref: mirror_thumbfan_c6_r0
+          shift: [u*1.1, u*0.6]
+        - ref: mirror_mcu
+          shift: [0,33/2]
+          affect: [y]
+        - ref: mirror_matrix_c6_r2
+          shift: [-u/2,0]
+          affect: [x]
+        - ref: mirror_matrix_c2_r2
           shift: [u/2,u/2]
           affect: [x,y]
+
   preview:
     - what: outline
-      name: mangrove
+      name: mangrove_left
+    - what: outline
+      name: mangrove_right
     - what: outline
       name: _keycaps
       operation: stack
     - what: outline
-      name: _mcu_cluster
+      name: _mcu_cluster_left
       operation: stack
     - what: outline
-      name: screw_heads
+      name: _mcu_cluster_right
       operation: stack
+    - what: outline
+      name: screw_heads_left
+      operation: stack
+    - what: outline
+      name: screw_heads_right
+      operation: stack
+      
 pcbs:
-  mangrove_pcb:
+  mangrove_left_pcb:
     template: kicad8
     outlines:
       board:
-        outline: mangrove
+        outline: mangrove_left
     footprints:
       m2_screws:
         what: ceoloide/mounting_hole_npth
-        where: /screw/
+        where: /^screw_/
         params:
           hole_size: 4.6
           hole_drill: 2.2
       inner_switches:
         what: ceoloide/switch_choc_v1_v2
         where:
-          - /matrix_c[2-6]_r[0-4]/
-          - /thumbfan_c[3-5]_r0/
+          - /^matrix_c[2-6]_r[0-4]/
+          - /^thumbfan_c[3-5]_r0/
         params:  &switches
           from: "{{colrow}}"
           to: "{{col.name}}"
           choc_v1_support: true
           choc_v2_support: false
+          include_keycap: true
           hotswap: true
-          reversible: true
         adjust:
           rotate: 180
       outer_switches_left:
         what: ceoloide/switch_choc_v1_v2
         where:
-          - /matrix_c1_r[0-4]/
+          - /^matrix_c1_r[0-4]/
         params: 
           <<: *switches
           outer_pad_width_back: 2
@@ -282,7 +391,7 @@ pcbs:
       outer_switches_right:
         what: ceoloide/switch_choc_v1_v2
         where:
-          - /thumbfan_c[6-7]_r0/
+          - /^thumbfan_c[6-7]_r0/
         params: 
           <<: *switches
           outer_pad_width_front: 2
@@ -290,25 +399,27 @@ pcbs:
           rotate: 180
       diodes:
         what: ceoloide/diode_tht_sod123
-        where: /key/
+        where: 
+          - /^matrix_/
+          - /^thumbfan_/
+
         params:
           from: "{{colrow}}"
           to: "{{row}}"
-          reversible: true
         adjust:
-          shift: [5.7,0]
+          shift: [5.7,3]
           rotate: 180
       mcu:
         what: ceoloide/mcu_nice_nano
         where: mcu
         params:
-          reversible: true
+          reversible: false
           only_required_jumpers: true
       display:
         what: ceoloide/display_nice_view
         where: display
         params:
-          reversible: true
+          reversible: false
           invert_jumpers_position: true
       on_off_switch:
         what: ceoloide/power_switch_smd_side
@@ -316,7 +427,7 @@ pcbs:
         params:
           from: BAT_P
           to: RAW
-          reversible: true
+          reversible: false
         adjust:
           shift: [-1.5, u/2 - 1.75]
           rotate: 90
@@ -324,7 +435,7 @@ pcbs:
         what: ceoloide/reset_switch_tht_top
         where: display
         params: 
-          reversible: true
+          reversible: false
         adjust:
           shift: [6.75, -25]
           rotate: 90
@@ -332,8 +443,104 @@ pcbs:
         what: ceoloide/battery_connector_jst_ph_2
         where: display
         params:
-          reversible: true
+          reversible: false
+        adjust:
+          shift: [-6,-25]
+          rotate: 90
+
+  mangrove_right:
+    template: kicad8
+    outlines:
+      board:
+        outline: mangrove_right
+    footprints:
+      m2_screws:
+        what: ceoloide/mounting_hole_npth
+        where: /^mirror_screw_/
+        params:
+          hole_size: 4.6
+          hole_drill: 2.2
+      inner_switches:
+        what: ceoloide/switch_choc_v1_v2
+        where:
+          - /^mirror_matrix_c[2-6]_r[0-4]/
+          - /^mirror_thumbfan_c[3-5]_r0/
+        params:  &switches
+          from: "{{colrow}}"
+          to: "{{col.name}}"
+          choc_v1_support: true
+          choc_v2_support: false
+          hotswap: true
+          include_keycap: true
+        adjust:
+          rotate: 180
+          
+      outer_switches_left:
+        what: ceoloide/switch_choc_v1_v2
+        where:
+          - /^mirror_matrix_c1_r[0-4]/
+        params: 
+          <<: *switches
+          outer_pad_width_back: 2
+        adjust:
+          rotate: 180
+      outer_switches_right:
+        what: ceoloide/switch_choc_v1_v2
+        where:
+          - /^mirror_thumbfan_c[6-7]_r0/
+        params: 
+          <<: *switches
+          outer_pad_width_front: 2
+        adjust:
+          rotate: 180
+      diodes:
+        what: ceoloide/diode_tht_sod123
+        where: 
+          - /^mirror_matrix_/
+          - /^mirror_thumbfan_/
+        params:
+          from: "{{colrow}}"
+          to: "{{row}}"
+        adjust:
+          shift: [5.7,3]
+          rotate: 180
+      mcu:
+        what: ceoloide/mcu_nice_nano
+        where: mirror_mcu
+        params:
+          reversible: false
+          only_required_jumpers: true
+      display:
+        what: ceoloide/display_nice_view
+        where: mirror_display
+        params:
+          reversible: false
+          invert_jumpers_position: true
+      on_off_switch:
+        what: ceoloide/power_switch_smd_side
+        where: mirror_matrix_c6_r4
+        params:
+          from: BAT_P
+          to: RAW
+          reversible: false
+        adjust:
+          shift: [-1.5, u/2 - 1.75]
+          rotate: 90
+      reset_switch:
+        what: ceoloide/reset_switch_tht_top
+        where: mirror_display
+        params: 
+          reversible: false
+        adjust:
+          shift: [6.75, -25]
+          rotate: 90
+      battery_connector:
+        what: ceoloide/battery_connector_jst_ph_2
+        where: mirror_display
+        params:
+          reversible: false
         adjust:
           shift: [-6,-25]
           rotate: 90
 cases:
+
