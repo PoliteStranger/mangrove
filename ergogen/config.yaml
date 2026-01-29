@@ -21,18 +21,18 @@ points:
         r3:
         r4:
     thumbfan:
-      anchor: 
+      anchor:
         - ref: matrix_c3_r1
-          shift: [2,-22]
+          shift: [2, -22]
       columns:
+        c2:
         c3:
         c4:
-        c5:
-        c6.key:
+        c5.key:
           stagger: -u*0.25
           spread: u + 4
           splay: -30
-        c7.key:
+        c6.key:
           stagger: -u/3
           tags:
             - key_1_5u
@@ -43,7 +43,7 @@ points:
         - helper
       anchor:
         - ref: matrix_c6_r4
-          shift: [u/2+18/2+1.6,u/2-33/2]
+          shift: [u/2+18/2+1.6, u/2-33/2]
     display:
       key.tags:
         - helper
@@ -87,7 +87,7 @@ points:
       anchor:
         aggregate.parts:
           - ref: matrix_c2_r1
-          - ref: thumbfan_c3_r0
+          - ref: thumbfan_c2_r0
         shift: [-0.8, -2.675]
     screw_5:
       key.tags:
@@ -104,12 +104,12 @@ points:
         - helper
         - screw
       anchor:
-        ref: thumbfan_c6_r0
-        shift: [-12,4]
-  mirror: &mirror
+        ref: thumbfan_c5_r0
+        shift: [-12, 4]
+  mirror:
     ref: matrix_c6_r1
     distance: 100
-    
+
 outlines:
   _keycaps:
     - what: rectangle
@@ -118,71 +118,71 @@ outlines:
       fillet: 3
     - what: rectangle
       where: [key_1_5u]
-      size: [18,18*1.5]
+      size: [18, 18*1.5]
       fillet: 3
 
   _mcu_left:
     - what: rectangle
       where: [mcu]
-      size: [17.78,33]
+      size: [17.78, 33]
       fillet: 1
     - what: rectangle
       where: [mcu]
-      size: [8.94,7.35]
+      size: [8.94, 7.35]
       fillet: 0.1
       operation: stack
       adjust:
-        shift: [0,33/2-7.35/2+0.7]
+        shift: [0, 33/2-7.35/2+0.7]
   _mcu_right:
     - what: rectangle
       where: [mirror_mcu]
-      size: [17.78,33]
+      size: [17.78, 33]
       fillet: 1
     - what: rectangle
       where: [mirror_mcu]
-      size: [8.94,7.35]
+      size: [8.94, 7.35]
       fillet: 0.1
       operation: stack
       adjust:
-        shift: [0,33/2-7.35/2+0.7]
+        shift: [0, 33/2-7.35/2+0.7]
 
   _display_left:
     - what: rectangle
       where: [display]
-      size: [14,36]
+      size: [14, 36]
       fillet: 0.5
     - what: rectangle
       where: [display]
-      size: [12.82,2.66]
+      size: [12.82, 2.66]
       operation: stack
       fillet: 0.1
       adjust:
-        shift: [0,-16.7]
+        shift: [0, -16.7]
     - what: rectangle
       where: [display]
-      size: [10.8,24.6]
+      size: [10.8, 24.6]
       operation: stack
       adjust:
-        shift: [0,-0.75]
-    
+        shift: [0, -0.75]
+
   _display_right:
     - what: rectangle
       where: [mirror_display]
-      size: [14,36]
+      size: [14, 36]
       fillet: 0.5
     - what: rectangle
       where: [mirror_display]
-      size: [12.82,2.66]
+      size: [12.82, 2.66]
       operation: stack
       fillet: 0.1
       adjust:
-        shift: [0,-16.7]
+        shift: [0, -16.7]
     - what: rectangle
       where: [mirror_display]
-      size: [10.8,24.6]
+      size: [10.8, 24.6]
       operation: stack
       adjust:
-        shift: [0,-0.75]  
+        shift: [0, -0.75]
 
   _mcu_cluster_left:
     - what: outline
@@ -206,20 +206,20 @@ outlines:
     - what: polygon
       points:
         - ref: matrix_c3_r1
-          shift: [u/2,-u/2]
-        - ref: thumbfan_c4_r0
-          shift: [-u/2,u/2]
+          shift: [u/2, -u/2]
+        - ref: thumbfan_c3_r0
+          shift: [-u/2, u/2]
           affect: [x]
-        - ref: thumbfan_c4_r0
-          shift: [-u/2,u/2]
+        - ref: thumbfan_c3_r0
+          shift: [-u/2, u/2]
           affect: [y]
-        - ref: thumbfan_c5_r0
-          shift: [u/2,u/2]
-          affect: [x,y]
+        - ref: thumbfan_c4_r0
+          shift: [u/2, u/2]
+          affect: [x, y]
         - ref: matrix_c6_r3
-          shift: [u/2,-u]
+          shift: [u/2, -u]
         - ref: matrix_c6_r3
-          shift: [u/2,-u/2]
+          shift: [u/2, -u/2]
 
   screw_heads_left:
     - what: circle
@@ -236,47 +236,47 @@ outlines:
       size: u
     - what: rectangle
       where: [matrix_c6_r4]
-      size: [1.6,3u]
+      size: [1.6, 3u]
       adjust:
-        shift: [u/2+1.6/2,-u]
+        shift: [u/2+1.6/2, -u]
     - what: rectangle
       where: [mcu]
-      size: [18,33]
+      size: [18, 33]
     - what: rectangle
       where: [display]
-      size: [18,36]
+      size: [18, 36]
     - what: polygon
       points:
         - ref: matrix_c1_r3
-          shift: [u/2,-u/2-u/4]
-        - ref: thumbfan_c3_r0
-          shift: [-u/2,-u/2]
-          affect: [x,y]
+          shift: [u/2, -u/2-u/4]
+        - ref: thumbfan_c2_r0
+          shift: [-u/2, -u/2]
+          affect: [x, y]
+        - ref: thumbfan_c4_r0
+          shift: [u/2, -u/2]
+          affect: [x, y]
         - ref: thumbfan_c5_r0
-          shift: [u/2,-u/2]
-          affect: [x,y]
+          shift: [u/8, -u*0.625]
+          affect: [x, y]
         - ref: thumbfan_c6_r0
-          shift: [u/8,-u*0.625]
-          affect: [x,y]
-        - ref: thumbfan_c7_r0
-          shift: [-u*0.625,-u*0.75]
-          affect: [x,y]
-        - ref: thumbfan_c7_r0
-          shift: [u/2,-u*0.75]
-          affect: [x,y]
-        - ref: thumbfan_c7_r0
-          shift: [u/2, 5*u/6.5]
-          affect: [x,y]
-        - ref: thumbfan_c7_r0
+          shift: [-u*0.625, -u*0.75]
+          affect: [x, y]
+        - ref: thumbfan_c6_r0
+          shift: [u*0.625, -u*0.75]
+          affect: [x, y]
+        - ref: thumbfan_c6_r0
+          shift: [u*0.625, 5*u/6.5]
+          affect: [x, y]
+        - ref: thumbfan_c6_r0
           shift: [u*0.2, u*0.8]
-          affect: [x,y]
-        - ref: thumbfan_c6_r0
+          affect: [x, y]
+        - ref: thumbfan_c5_r0
           shift: [u*1.1, u*0.6]
         - ref: mcu
-          shift: [0,33/2]
+          shift: [0, 33/2]
           affect: [y]
         - ref: matrix_c6_r2
-          shift: [-u/2,0]
+          shift: [-u/2, 0]
           affect: [x]
 
   mangrove_right:
@@ -285,51 +285,51 @@ outlines:
       size: u
     - what: rectangle
       where: [mirror_matrix_c6_r4]
-      size: [1.6,3u]
+      size: [1.6, 3u]
       adjust:
-        shift: [u/2+1.6/2,-u]
+        shift: [u/2+1.6/2, -u]
     - what: rectangle
       where: [mirror_mcu]
-      size: [18,33]
+      size: [18, 33]
     - what: rectangle
       where: [mirror_display]
-      size: [18,36]
+      size: [18, 36]
     - what: polygon
       points:
         - ref: mirror_matrix_c1_r3
-          shift: [u/2,-u/2-u/4]
-        - ref: mirror_thumbfan_c3_r0
-          shift: [-u/2,-u/2]
-          affect: [x,y]
+          shift: [u/2, -u/2-u/4]
+        - ref: mirror_thumbfan_c2_r0
+          shift: [-u/2, -u/2]
+          affect: [x, y]
+        - ref: mirror_thumbfan_c4_r0
+          shift: [u/2, -u/2]
+          affect: [x, y]
         - ref: mirror_thumbfan_c5_r0
-          shift: [u/2,-u/2]
-          affect: [x,y]
+          shift: [u/8, -u*0.625]
+          affect: [x, y]
         - ref: mirror_thumbfan_c6_r0
-          shift: [u/8,-u*0.625]
-          affect: [x,y]
-        - ref: mirror_thumbfan_c7_r0
-          shift: [-u*0.625,-u*0.75]
-          affect: [x,y]
-        - ref: mirror_thumbfan_c7_r0
-          shift: [u/2,-u*0.75]
-          affect: [x,y]
-        - ref: mirror_thumbfan_c7_r0
-          shift: [u/2, 5*u/6.5]
-          affect: [x,y]
-        - ref: mirror_thumbfan_c7_r0
+          shift: [-u*0.625, -u*0.75]
+          affect: [x, y]
+        - ref: mirror_thumbfan_c6_r0
+          shift: [u*0.625, -u*0.75]
+          affect: [x, y]
+        - ref: mirror_thumbfan_c6_r0
+          shift: [u*0.625, 5*u/6.5]
+          affect: [x, y]
+        - ref: mirror_thumbfan_c6_r0
           shift: [u*0.2, u*0.8]
-          affect: [x,y]
-        - ref: mirror_thumbfan_c6_r0
+          affect: [x, y]
+        - ref: mirror_thumbfan_c5_r0
           shift: [u*1.1, u*0.6]
         - ref: mirror_mcu
-          shift: [0,33/2]
+          shift: [0, 33/2]
           affect: [y]
         - ref: mirror_matrix_c6_r2
-          shift: [-u/2,0]
+          shift: [-u/2, 0]
           affect: [x]
         - ref: mirror_matrix_c2_r2
-          shift: [u/2,u/2]
-          affect: [x,y]
+          shift: [u/2, u/2]
+          affect: [x, y]
 
   preview:
     - what: outline
@@ -351,7 +351,7 @@ outlines:
     - what: outline
       name: screw_heads_right
       operation: stack
-      
+
 pcbs:
   mangrove_left_pcb:
     template: kicad8
@@ -369,8 +369,8 @@ pcbs:
         what: ceoloide/switch_choc_v1_v2
         where:
           - /^matrix_c[2-6]_r[0-4]/
-          - /^thumbfan_c[3-5]_r0/
-        params:  &switches
+          - /^thumbfan_c[2-4]_r0/
+        params: &switches
           from: "{{colrow}}"
           to: "{{col.name}}"
           choc_v1_support: true
@@ -383,7 +383,7 @@ pcbs:
         what: ceoloide/switch_choc_v1_v2
         where:
           - /^matrix_c1_r[0-4]/
-        params: 
+        params:
           <<: *switches
           outer_pad_width_back: 2
         adjust:
@@ -391,15 +391,15 @@ pcbs:
       outer_switches_right:
         what: ceoloide/switch_choc_v1_v2
         where:
-          - /^thumbfan_c[6-7]_r0/
-        params: 
+          - /^thumbfan_c[5-6]_r0/
+        params:
           <<: *switches
           outer_pad_width_front: 2
         adjust:
           rotate: 180
       diodes:
         what: ceoloide/diode_tht_sod123
-        where: 
+        where:
           - /^matrix_/
           - /^thumbfan_/
 
@@ -407,7 +407,7 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row}}"
         adjust:
-          shift: [5.7,3]
+          shift: [5.7, 3]
           rotate: 180
       mcu:
         what: ceoloide/mcu_nice_nano
@@ -415,6 +415,24 @@ pcbs:
         params:
           reversible: false
           only_required_jumpers: true
+          # DISPLAY
+          P0: MOSI
+          P1: SCK
+          P2: CS
+          # COLS
+          P7: c1
+          P8: c2
+          P9: c3
+          P21: c4
+          P20: c5
+          P19: c6
+          # ROWS
+          P18: r4
+          P15: r3
+          P14: r2
+          P16: r1
+          P10: r0
+
       display:
         what: ceoloide/display_nice_view
         where: display
@@ -429,12 +447,12 @@ pcbs:
           to: RAW
           reversible: false
         adjust:
-          shift: [-1.5, u/2 - 1.75]
+          shift: [-1.5, u*0.5 - 2.025]
           rotate: 90
       reset_switch:
         what: ceoloide/reset_switch_tht_top
         where: display
-        params: 
+        params:
           reversible: false
         adjust:
           shift: [6.75, -25]
@@ -445,7 +463,7 @@ pcbs:
         params:
           reversible: false
         adjust:
-          shift: [-6,-25]
+          shift: [-6, -25]
           rotate: 90
 
   mangrove_right:
@@ -464,8 +482,8 @@ pcbs:
         what: ceoloide/switch_choc_v1_v2
         where:
           - /^mirror_matrix_c[2-6]_r[0-4]/
-          - /^mirror_thumbfan_c[3-5]_r0/
-        params:  &switches
+          - /^mirror_thumbfan_c[2-4]_r0/
+        params: &switches
           from: "{{colrow}}"
           to: "{{col.name}}"
           choc_v1_support: true
@@ -474,12 +492,12 @@ pcbs:
           include_keycap: true
         adjust:
           rotate: 180
-          
+
       outer_switches_left:
         what: ceoloide/switch_choc_v1_v2
         where:
           - /^mirror_matrix_c1_r[0-4]/
-        params: 
+        params:
           <<: *switches
           outer_pad_width_back: 2
         adjust:
@@ -487,22 +505,22 @@ pcbs:
       outer_switches_right:
         what: ceoloide/switch_choc_v1_v2
         where:
-          - /^mirror_thumbfan_c[6-7]_r0/
-        params: 
+          - /^mirror_thumbfan_c[5-6]_r0/
+        params:
           <<: *switches
           outer_pad_width_front: 2
         adjust:
           rotate: 180
       diodes:
         what: ceoloide/diode_tht_sod123
-        where: 
+        where:
           - /^mirror_matrix_/
           - /^mirror_thumbfan_/
         params:
           from: "{{colrow}}"
           to: "{{row}}"
         adjust:
-          shift: [5.7,3]
+          shift: [5.7, 3]
           rotate: 180
       mcu:
         what: ceoloide/mcu_nice_nano
@@ -510,6 +528,24 @@ pcbs:
         params:
           reversible: false
           only_required_jumpers: true
+          # DISPLAY
+          P0: MOSI
+          P1: SCK
+          P2: CS
+          # COLS
+          P21: c1
+          P20: c2
+          P19: c3
+          P18: c4
+          P15: c5
+          P14: c6
+          # ROWS
+          P16: r4
+          P10: r3
+          P7: r2
+          P8: r1
+          P9: r0
+
       display:
         what: ceoloide/display_nice_view
         where: mirror_display
@@ -524,12 +560,12 @@ pcbs:
           to: RAW
           reversible: false
         adjust:
-          shift: [-1.5, u/2 - 1.75]
-          rotate: 90
+          shift: [-1.5, u/2 - 2.025]
+          rotate: 270
       reset_switch:
         what: ceoloide/reset_switch_tht_top
         where: mirror_display
-        params: 
+        params:
           reversible: false
         adjust:
           shift: [6.75, -25]
@@ -540,7 +576,6 @@ pcbs:
         params:
           reversible: false
         adjust:
-          shift: [-6,-25]
+          shift: [-6, -25]
           rotate: 90
 cases:
-

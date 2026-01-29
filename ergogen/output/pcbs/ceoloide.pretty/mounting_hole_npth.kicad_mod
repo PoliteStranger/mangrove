@@ -1,0 +1,49 @@
+(footprint "mounting_hole_npth"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(property "Reference" "MH1"
+		(at 0 2.55 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "4627caba-f580-44da-bbee-f594f57c486e")
+		(effects
+			(font (size 1 1) (thickness 0.15))
+		)
+	)
+	(property "Value" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "77666979-32fd-4a10-8b33-04580d5ff166")
+		(effects
+			(font (size 1.27 1.27) (thickness 0.15))
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "18f55bc4-a9eb-4ae4-bbf2-fe32cb2c24f0")
+		(effects
+			(font (size 1.27 1.27) (thickness 0.15))
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "63c6540d-c9fd-4dc3-bb96-9294fc8822b3")
+		(effects
+			(font (size 1.27 1.27) (thickness 0.15))
+		)
+	)
+	(pad "" np_thru_hole circle
+		(at 0 0)
+		(size 4.6 4.6)
+		(drill 2.2)
+		(layers "*.Cu" "*.Mask")
+		(uuid "b971cd03-a09f-4932-835a-39a97decd5d7")
+	)
+	(embedded_fonts no)
+)
